@@ -1,0 +1,185 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{needspace}
+\newcommand{\R}{\mathbb{R}}
+\title{Corrigé du contrôle du 10 novembre 2025}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\noindent\textbf{Exercice 1.}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=1em]
+\item
+  \begin{enumerate}[label=(\alph*),itemsep=.6em]
+  \item Dans un espace métrique $(E,d)$, une partie $U$ est ouverte si et seulement si
+  \[
+    \forall x\in U,\quad \exists\varepsilon>0:\quad B_d(x,\varepsilon)\subseteq U.
+  \]
+  Un fermé est le complémentaire d'un ouvert.
+
+  \item Soient $x\in E$, $r>0$ et $y\in B_d(x,r)$. Posons $\varepsilon=r-d(x,y)>0$. Pour tout $z\in B_d(y,\varepsilon)$,
+  \[
+    d(x,z)\leq d(x,y)+d(y,z)<d(x,y)+\varepsilon=r.
+  \]
+  Donc $B_d(y,\varepsilon)\subseteq B_d(x,r)$, ce qui prouve que $B_d(x,r)$ est ouvert.
+  \end{enumerate}
+
+\item Soit $f:\R\to\R$, $\lambda\mapsto N(\lambda x-y)$. La fonction $\lambda\mapsto\lambda x-y$ est continue, car $N(x)$-lipschitzienne. En effet,
+\[
+  \forall\lambda,\mu\in\R,\quad
+  N\bigl((\lambda x-y)-(\mu x-y)\bigr)
+  =N\bigl((\lambda-\mu)x\bigr)=|\lambda-\mu|\,N(x).
+\]
+De même, $u\mapsto N(u)$ est $1$-lipschitzienne : $N(u)=N(u-v+v)\leq N(u-v)+N(v)$, donc $N(u)-N(v)\leq N(u-v)$. Symétriquement, $N(v)-N(u)\leq N(u-v)$, d'où $|N(u)-N(v)|\leq N(u-v)$. Ainsi $f$ est continue par composition.
+
+\item Soit $(x_n)$ une suite de Cauchy dans $F$ pour la distance induite. Elle est de Cauchy dans $E$, qui est complet, donc $x_n\to\ell\in E$. Alors
+\[
+  \forall\varepsilon>0,\quad \exists n_0\in\mathbb N:\quad
+  x_{n_0}\in B_d(\ell,\varepsilon)\cap F.
+\]
+Donc $\ell\in\overline F=F$, car $F$ est fermé. Ainsi $F$ est complet.
+
+\item \textit{Première version (preuve directe).} Soit $(f_n)$ une suite de Cauchy dans $C^0([0,1],\R)$ muni de $\|\cdot\|_\infty$. Elle vérifie le critère de Cauchy uniforme :
+\[
+  \forall\varepsilon>0,\quad \exists n_0\in\mathbb N,\quad
+  \forall p,q>n_0,\quad \forall x\in[0,1],\quad
+  |f_p(x)-f_q(x)|\leq\varepsilon.
+\]
+Pour $x$ fixé, $(f_n(x))_{n\in\mathbb N}$ est de Cauchy dans $\R$, qui est complet, donc converge vers une valeur notée $f(x)$.
+
+Fixons $\varepsilon>0$ et $p>n_0$. Pour tout $x\in[0,1]$, en faisant tendre $q$ vers $+\infty$, on obtient $|f_p(x)-f(x)|\leq\varepsilon$. Comme $n_0$ ne dépend pas de $x$, on a $\|f_p-f\|_\infty\leq\varepsilon$, donc $\|f_n-f\|_\infty\to0$. Les $f_n$ étant continues et convergeant uniformément vers $f$, $f$ est continue. Ainsi $C^0([0,1],\R)$ est complet.
+
+\smallskip
+\textit{Deuxième version (argument indirect).} On sait que $\mathcal B([0,1],\R)$, l'espace des fonctions bornées muni de $\|\cdot\|_\infty$, est complet. $C^0([0,1],\R)$ y est fermé, car toute limite uniforme de fonctions continues est continue. On déduit de la question 3 que $C^0([0,1],\R)$ est complet.
+\end{enumerate}
+\medskip
+\Needspace{6\baselineskip}
+\noindent\textbf{Exercice 2.}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=1em]
+\item Si $f$ est non constante, $\exists x,y\in\R$, $x<y$, tels que $f(x)\neq f(y)$. Supposons $f(x)<f(y)$, l'autre cas étant analogue. Par le TVI, $f([x,y])$ est un intervalle contenant $f(x)$ et $f(y)$, donc $[f(x),f(y)]\subseteq f([x,y])$ (caractérisation des intervalles de $\R$ : $I$ est un intervalle si et seulement si $\forall a,b\in I$, $a<b\Rightarrow[a,b]\subseteq I$). Un intervalle non réduit à un singleton n'est pas dénombrable. Donc $f(\R)$ ne peut être fini ou dénombrable.
+
+\item Si $f(\R\setminus\mathbb Q)\subseteq\mathbb Q$, comme $f(\mathbb Q)$ est dénombrable, $f(\R)=f(\R\setminus\mathbb Q)\cup f(\mathbb Q)$ est aussi dénombrable. Par la question 1, $f$ est forcément constante.
+\end{enumerate}
+\medskip
+\Needspace{6\baselineskip}
+\noindent\textbf{Exercice 3.}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=1em]
+\item $\nu_5(27-2)=\nu_5(25)=2$, donc $d(27,2)=\frac{1}{1+2}=\frac13$.
+
+\item
+  \begin{enumerate}[label=(\alph*),itemsep=.6em]
+  \item Supposons $x\neq y$. Alors
+  \[
+    d(x,y)=\frac{1}{1+\nu_5(x-y)}\leq\frac{1}{1+p}
+    \iff\nu_5(x-y)\geq p\iff 5^p\mid(x-y).
+  \]
+  Si $x=y$, $d(x,y)=0$ et les deux propriétés $0\leq\frac{1}{1+p}$ et $5^p\mid0$ sont toujours vraies.
+
+  \item Si $x=y$ ou $y=z$, l'inégalité est immédiate. Supposons donc $x\neq y$ et $y\neq z$. Par la question (a),
+  \begin{align*}
+    d(x,z)\leq\max\bigl(d(x,y),d(y,z)\bigr)
+    &\iff d(x,z)\leq\frac{1}{1+\nu_5(x-y)}\ \text{ou}\ d(x,z)\leq\frac{1}{1+\nu_5(y-z)}\\
+    &\iff 5^{\nu_5(x-y)}\mid(x-z)\ \text{ou}\ 5^{\nu_5(y-z)}\mid(x-z).\tag{$*$}
+  \end{align*}
+  Supposons $\nu_5(x-y)\leq\nu_5(y-z)$. Alors
+  \[
+    x-z=(x-y)-(z-y)
+    =5^{\nu_5(x-y)}\left(\frac{x-y}{5^{\nu_5(x-y)}}-\frac{z-y}{5^{\nu_5(x-y)}}\right).
+  \]
+  Le dernier facteur est un entier, puisque $x-y$ et $z-y$ sont divisibles par $5^{\nu_5(x-y)}$. Donc $5^{\nu_5(x-y)}\mid(x-z)$. Si $\nu_5(x-y)>\nu_5(y-z)$, on obtient de même $5^{\nu_5(y-z)}\mid(x-z)$. Dans tous les cas, $(*)$ est vérifiée.
+
+  \item On a $d(x,y)\geq0$ et $d(x,y)=0\iff x=y$ par définition. La symétrie découle de $\nu_5(n)=\nu_5(-n)$ pour $n\neq0$. Comme $\max(d(x,y),d(y,z))\leq d(x,y)+d(y,z)$, la question (b) donne l'inégalité triangulaire. Donc $d$ est une distance.
+  \end{enumerate}
+
+\item Une norme $N$ sur $\R$ est déterminée par $N(1)$, car $N(x)=|x|\,N(1)$ pour tout $x\in\R$. Or $d(1,0)=1$, donc la seule norme candidate est $N(x)=|x|$. Mais $d(5,0)=\frac12\neq5$, donc $d$ ne provient pas de la restriction à $\mathbb Z$ d'une norme sur $\R$.
+
+\item On admet que $x_n+1=(n+1)!$. Alors $\nu_5(x_n-(-1))=\nu_5((n+1)!)\to+\infty$. En effet, $\forall A>0$, posons $k=\lfloor A\rfloor+1>A$ et $n_0=5^k$. Pour $n>n_0$, $5^k\mid(n+1)!$, donc $\nu_5((n+1)!)\geq k>A$. Ainsi $d(x_n,-1)=\frac{1}{1+\nu_5(x_n+1)}\to0$ : $(x_n)$ converge vers $-1$ dans $(\mathbb Z,d)$.
+\end{enumerate}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=1em,start=5]
+\item
+  \begin{enumerate}[label=(\alph*),itemsep=.6em]
+  \item $10^n=2^n\cdot5^n$, donc $\nu_5(10^n)=n\to+\infty$. Ainsi $d(10^n,0)=\frac{1}{1+n}\to0$ : $(10^n)$ converge vers $0$.
+
+  \item Dans $\mathbb Z/5\mathbb Z$, la suite $(2^n)$ est périodique de période $4$, avec le cycle $(1,2,4,3)$. Ainsi, $\forall y\in\mathbb Z$, $\forall n\in\mathbb N$, $\exists n_0>n$ tel que $2^{n_0}-y\not\equiv0\pmod5$. Donc, pour $\varepsilon=\frac12$, $\forall n\in\mathbb N$, $\exists n_0>n$ tel que $d(2^{n_0},y)=1>\varepsilon$. La suite ne converge vers aucun $y\in\mathbb Z$.
+  \end{enumerate}
+
+\item Non. La suite $(10^n)$ ne converge pas pour $d_1$, car elle n'est pas de Cauchy : $|10^{n+1}-10^n|=9\cdot10^n\to+\infty$. Si $d$ et $d_1$ définissaient les mêmes ouverts, donc les mêmes voisinages, elles définiraient les mêmes suites convergentes. Or $(10^n)$ converge pour $d$.
+
+\item
+  \begin{enumerate}[label=(\alph*),itemsep=.6em]
+  \item Pour $x\neq y$, posons $q=\nu_5(x-y)$. On a $d(x,y)=\frac{1}{1+q}$, d'où $q=\frac{1}{d(x,y)}-1$ et $d_2(x,y)=5^{1-1/d(x,y)}$. Posons $f(0)=0$ et $f(t)=5^{1-1/t}$ pour $t>0$. La fonction $f$ est strictement croissante et continue sur $[0,+\infty[$, et $d_2=f\circ d$. Donc $d(x,y)<r\iff d_2(x,y)<f(r)$, d'où $B_d(x,r)=B_{d_2}(x,f(r))$.
+
+  \item Par continuité et stricte croissance, $f([0,1])=[0,1]$ et $f:[0,1]\to[0,1]$ est bijective. Ainsi, $\forall x\in\mathbb Z$, $\forall q\in]0,1]$, en posant $r=f^{-1}(q)>0$, on a $B_{d_2}(x,q)=B_d(x,r)$. Si $q>1$, $B_{d_2}(x,q)=\mathbb Z=B_d(x,2)$, car $d,d_2\leq1$. Avec la question (a), cela prouve que les deux distances ont les mêmes boules ouvertes.
+
+  \item Comme $d$ et $d_2$ définissent les mêmes boules ouvertes, elles définissent les mêmes ouverts. En effet, si $U$ est ouvert pour $d$, $\forall x\in U$, $\exists\varepsilon>0$ tel que $B_d(x,\varepsilon)\subseteq U$. Alors $B_{d_2}(x,f(\varepsilon))\subseteq U$, donc $U$ est ouvert pour $d_2$. Réciproquement, on procède de même en utilisant la question (b).
+  \end{enumerate}
+
+\item Pas forcément. Dans $\mathbb R^2$, les normes $\|\cdot\|_2$ et $\|\cdot\|_\infty$ définissent les mêmes ouverts, car $\|u\|_\infty\leq\|u\|_2\leq\sqrt2\,\|u\|_\infty$. Pourtant, les boules pour $\|\cdot\|_2$ sont les disques ouverts, tandis que celles pour $\|\cdot\|_\infty$ sont les carrés ouverts à côtés parallèles aux axes.
+\end{enumerate}
+\medskip
+\Needspace{6\baselineskip}
+\noindent\textbf{Exercice 4.}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=1em]
+\item On pose $b(f,g)=f(0)g(0)+\int_0^1 f'(x)g'(x)\,dx$. Pour $f_1,f_2,g\in E$,
+\[
+  b(f_1+f_2,g)=(f_1(0)+f_2(0))g(0)+\int_0^1(f_1+f_2)'(x)g'(x)\,dx.
+\]
+La linéarité en la première variable découle de celles de l'intégrale et de la dérivation. La symétrie découle de la commutativité dans $\R$, d'où la bilinéarité. Enfin, $b(f,f)=N(f)^2\geq0$, et $b(f,f)=0$ impose $f(0)^2=0$ et $\int_0^1 f'(x)^2\,dx=0$. Comme $f'$ est continue, cette dernière égalité impose $f'=0$, donc $f$ est constante égale à $0$. Ainsi $b$ est un produit scalaire et $N(f)=\sqrt{b(f,f)}$.
+
+\item $N(f)=0\iff f=0$ a été justifié en 1, et $N(\lambda f)=|\lambda|N(f)$ est immédiat. Pour l'inégalité triangulaire, on utilise Cauchy--Schwarz. Notons provisoirement $B(f)=b(f,f)$. On a $b(f,g)\leq\sqrt{B(f)B(g)}$, donc
+\[
+  N(f+g)^2=B(f)+B(g)+2b(f,g)
+  \leq B(f)+B(g)+2\sqrt{B(f)B(g)}=(N(f)+N(g))^2.
+\]
+Ainsi $N(f+g)\leq N(f)+N(g)$, et $N$ est une norme.
+
+\item
+  \begin{enumerate}[label=(\alph*),itemsep=.6em]
+  \item Pour $n,m\geq1$,
+  \[
+    b(e_n,e_m)=\int_0^1 nx^{n-1}mx^{m-1}\,dx
+    =mn\int_0^1x^{n+m-2}\,dx=\frac{mn}{n+m-1}.
+  \]
+  Par calcul direct, $b(e_0,e_0)=1$ et $b(e_n,e_0)=b(e_0,e_n)=0$ pour $n\geq1$.
+
+  \item $(e_1,e_0)$ est déjà une base orthonormée de $F$. En effet, $b(e_1,e_0)=0$, $N(e_1)=\sqrt{\int_0^1 1\,dx}=1$ et $N(e_0)=\sqrt{1+\int_0^1 0\,dx}=1$.
+
+  \item Si $(u_1,\ldots,u_n)$ est une base orthonormée d'un sous-espace $F\subseteq E$ de dimension finie, la projection orthogonale sur $F$ existe et est donnée par $P_F(x)=\sum_{i=1}^n b(x,u_i)u_i$. Donc $P_F(e_3)=b(e_3,e_1)e_1+b(e_3,e_0)e_0=e_1$.
+
+  \smallskip
+  \textit{Remarque.} En dimension infinie, l'existence d'une projection orthogonale n'est pas automatique. Si $E$ est un espace de Hilbert, on peut projeter sur $\overline F$. Si $(u_i)_{i\in\mathbb N}$ est une famille orthonormée telle que $\overline{\operatorname{Vect}(u_i:i\in\mathbb N)}=\overline F$, Bessel donne $\sum_{i\geq0}|b(x,u_i)|^2\leq N(x)^2$ et $P_{\overline F}(x)=\sum_{i\geq0}b(x,u_i)u_i$. Si $F$ est fermé, cette projection est $P_F$.
+  \end{enumerate}
+
+\item Pour $n\geq1$, $N(e_n)^2=\frac{n^2}{2n-1}$ et $\|e_n\|_\infty=1$, donc $\frac{N(e_n)}{\|e_n\|_\infty}=\frac{n}{\sqrt{2n-1}}\to+\infty$. Il n'existe donc pas de $\alpha>0$ tel que $\forall f\in E$, $N(f)\leq\alpha\|f\|_\infty$.
+
+\item En revanche, il existe un $\beta>0$. Pour $x\in[0,1]$, $f(x)=f(0)+\int_0^x f'(t)\,dt$. Par Cauchy--Schwarz,
+\[
+  \left|\int_0^x f'(t)\,dt\right|
+  \leq\sqrt{\int_0^x f'(t)^2\,dt}\,\sqrt{\int_0^x1\,dt}
+  \leq\|f'\|_2,
+\]
+car $\sqrt x\leq1$. Donc $|f(x)|\leq|f(0)|+\|f'\|_2\leq2N(f)$, d'où $\|f\|_\infty\leq2N(f)$. On peut prendre $\beta=2$.
+
+\item Non, $(E,N)$ n'est pas complet. Pour $n\geq1$, posons $f_n(x)=(x+1/n)^{2/3}$. On a $f_n\in E$, avec $f_n'(x)=\frac23(x+1/n)^{-1/3}$. Pour $m\geq n$ et $x>0$, $0\leq f_n'(x)\leq f_m'(x)\leq\frac23x^{-1/3}$. Comme $(b-a)^2\leq b^2-a^2$ lorsque $0\leq a\leq b$,
+\begin{align*}
+  \|f_m'-f_n'\|_2^2
+  &\leq\frac49\int_0^1\left[x^{-2/3}-(x+1/n)^{-2/3}\right]\,dx\\
+  &=\frac43\left[1-(1+1/n)^{1/3}+n^{-1/3}\right]
+  \leq\frac43n^{-1/3}.
+\end{align*}
+De plus, $|f_m(0)-f_n(0)|^2=|m^{-2/3}-n^{-2/3}|^2\leq n^{-4/3}$. Donc
+\[
+  N(f_m-f_n)^2\leq n^{-4/3}+\frac43n^{-1/3}\longrightarrow0,
+\]
+ce qui prouve que $(f_n)$ est de Cauchy.
+
+Supposons $f_n\to f\in E$ pour $N$. La question 5 implique la convergence uniforme vers $f$, donc la convergence simple. Or $f_n(x)\to x^{2/3}$, donc $f(x)=x^{2/3}$. Cette fonction n'est pas dérivable en $0$, puisque $\frac{f(h)-f(0)}h=h^{-1/3}\to+\infty$ lorsque $h\to0^+$. Contradiction : $(E,N)$ n'est pas complet.
+\end{enumerate}
+% La suite du corrigé sera ajoutée progressivement.
+\end{document}
+
